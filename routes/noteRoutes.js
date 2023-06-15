@@ -7,3 +7,6 @@ const router = express.Router();
 exports.getAllNotes=router.get('/', notesController.getAllNotes);
 // Get a specific user
 exports.getSinglenote=router.get('/:id', notesController.getSingleNote);
+
+
+exports.createNote = router.post('/', notesController.createNote);
