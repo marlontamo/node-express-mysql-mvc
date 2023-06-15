@@ -12,6 +12,7 @@ app.listen(port, () => {
 
  
 // Parse incoming JSON data
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Use userRoutes for '/users' endpoint

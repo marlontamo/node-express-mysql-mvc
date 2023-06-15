@@ -5,11 +5,11 @@ dotenv.config()
 // const router = express.Router()
 
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'notes_app'
-})
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE
+});
 exports.getNotes= async() =>{
     const[rows] = await pool.query('Select * from notes')
     return rows
@@ -22,5 +22,9 @@ exports.getSingleNote = async(id) =>{
 exports.createNote = async(title,contents) =>{
     const [result] = await pool.query(`INSERT INTO notes (title, contents)VALUES (?, ?)`, [title, contents])
   const id = result.insertId
-  return getNote(id)
+  return createdNote(id)
+},
+ createdNote =async (id) =>{
+    const [rows] =await pool.query(`SELECT * FROM notes WHERE id = ?`, [id])
+  return rows[0]
 }
