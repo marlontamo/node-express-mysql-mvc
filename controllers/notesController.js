@@ -18,5 +18,12 @@ exports.getAllNotes = async (req, res) => {
     } else {
       res.status(404).json({ error: 'User not found' });
     }
-  };
+  },
+  exports.createNote = async(req, res) =>{
+    const bodyParams = req.body
+    const title = bodyParams.title;
+   const contents =bodyParams.contents;
+       const noteCreated = await noteDB.createNote(title,contents);
+       res.status(201).json(noteCreated)
+  }
   

@@ -23,3 +23,8 @@ exports.getUser = (req, res) => {
     res.status(404).json({ error: 'User not found' });
   }
 };
+exports.createUser = async(title, contents) =>{
+  const [result] = await pool.query(`INSERT INTO notes (title, contents)VALUES (?, ?)`, [title, contents])
+  const id = result.insertId
+  return getNote(id)
+}
