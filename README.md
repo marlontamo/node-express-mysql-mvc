@@ -10,8 +10,8 @@ simple rest API using MVC pattern with node, express,mysql
 - get single note
   - localhost:5000/notes/{note Id}
 - create a note
-localhost:5000/notes
+  -localhost:5000/notes
 - update a note
-localhost:5000/notes/{id}/update
+  -localhost:5000/notes/{id}/update
 
 
