@@ -8,7 +8,7 @@ simple rest API using MVC pattern with node, express,mysql
     - MYSQL_USER=
     - MYSQL_PASSWORD=
     - MYSQL_DATABASE=notes_app
--create Database to phpmyadmin notes_app and import the notesdb.sql located inside the DATABASE directory
+- create Database to phpmyadmin notes_app and import the notesdb.sql located inside the DATABASE directory
 - npm run dev
 # endpoints
 - get all notes
