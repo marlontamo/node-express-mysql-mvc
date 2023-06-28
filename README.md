@@ -6,7 +6,7 @@ simple rest API using MVC pattern with node, express,mysql
 - npm run dev
 - endpoints
 - get all notes
--localhost:5000/notes
+*localhost:5000/notes
 - get single note
 -localhost:5000/notes/{note Id}
 - create a note
