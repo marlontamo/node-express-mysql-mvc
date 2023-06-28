@@ -24,7 +24,17 @@ exports.createNote = async(title,contents) =>{
   const id = result.insertId
   return createdNote(id)
 },
- createdNote =async (id) =>{
-    const [rows] =await pool.query(`SELECT * FROM notes WHERE id = ?`, [id])
-  return rows[0]
+exports.updateNote = async(id,title,contents) =>{
+  const[result] = await pool.query(
+    `UPDATE notes
+    SET title =?, 
+    contents = ?
+    WHERE id=?`,
+    [title,contents,id])
+  return result
+
+},
+createdNote =async (id) =>{
+  const [rows] =await pool.query(`SELECT * FROM notes WHERE id = ?`, [id])
+   return rows[0]
 }
