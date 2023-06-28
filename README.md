@@ -2,6 +2,7 @@
 simple rest API using MVC pattern with node, express,mysql
 # Create ,Read,Update and Delete using Node.js, Express.js,and Mysql
 -clone the repo
+- npm run dev
 -run npm install
 # endpoints
 * get all notes
