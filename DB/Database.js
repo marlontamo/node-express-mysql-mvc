@@ -11,16 +11,25 @@ const pool = mysql.createPool({
   database: process.env.MYSQL_DATABASE
 });
 exports.getNotes= async() =>{
-    const[rows] = await pool.query('Select * from notes')
+    const[rows] = await pool.query(`
+    Select * from notes`
+    )
     return rows
 },
 exports.getSingleNote = async(id) =>{
-    const [rows] = await pool.query(`SELECT * FROM notes WHERE id = ?`, [id])
+    const [rows] = await pool.query(`
+    SELECT * FROM notes
+     WHERE id = ?`,
+      [id])
   return rows[0]
     
 },
 exports.createNote = async(title,contents) =>{
-    const [result] = await pool.query(`INSERT INTO notes (title, contents)VALUES (?, ?)`, [title, contents])
+    const [result] = await pool.query(`
+    INSERT INTO notes 
+    (title, contents)VALUES (?, ?)`,
+     [title, contents]
+     )
   const id = result.insertId
   return createdNote(id)
 },
@@ -35,6 +44,9 @@ exports.updateNote = async(id,title,contents) =>{
 
 },
 createdNote =async (id) =>{
-  const [rows] =await pool.query(`SELECT * FROM notes WHERE id = ?`, [id])
+  const [rows] =await pool.query(`
+  SELECT * FROM notes 
+  WHERE id = ?`,
+   [id])
    return rows[0]
 }
